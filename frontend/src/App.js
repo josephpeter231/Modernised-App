@@ -16,11 +16,14 @@ import Register from './components/Register';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import ResetPassword from './components/forgotPassword/ResetPassword';
 import axios from './Axios/axios.js';
+import CreateTask from './components/createTask/CreateTask.jsx';
+
 function App() {
   const token = JSON.parse(localStorage.getItem("authToken"));
   const [tasks, dispatch] = useReducer(taskReducer, [])
   const [userToken, tokenDispatch] = useReducer(tokenReducer, token)
   const [user, userDispatch] = useReducer(userReducer, {})
+  
   useEffect(() => {
     console.log("App.js");
     const fetchUser = async () => {
@@ -72,6 +75,8 @@ function App() {
                 <Route path="completed" element={<Completed />} />
               </Route>
               <Route path="/login" element={<Login />} />
+              
+              <Route path="/createtask" element={<CreateTask/>} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgotPassword" element={<ForgotPassword />} />
               <Route path="/resetPassword" element={<ResetPassword />} />

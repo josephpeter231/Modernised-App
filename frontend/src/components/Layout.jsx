@@ -6,9 +6,9 @@ function Layout() {
     return (
         <div>
             <div className='mt-20 flex flex-col md:flex-row md:justify-between'>
-                <CreateTask />
                 
-                <div className='task-container w-au mx-5 md:w-1/3 mt-3'>
+                
+                <div className='ml-[426px] task-container w-au mx-5 md:w-1/3 mt-3 items-center'>
                 <div className='indicator'>
                         <TaskIndicator />
                     </div>
