@@ -43,6 +43,11 @@ mongoose.connect("mongodb+srv://josephpeterjece2021:AJ9Hg6xTtQBUCoGr@cluster1.xa
 
 //api endpoints 
 app.use("/api/user", userRouter)
+app.use("/gettask",getTask = (req, res) => {
+    taskModel.find({ userId: req.user.id })
+        .then((data) => res.status(200).json(data))
+        .catch((error) => res.status(501).json({ message: error.message }))
+})
 app.delete('/deletetask/:id', async (req, res) => {
     try {
         const { id } = req.params;
